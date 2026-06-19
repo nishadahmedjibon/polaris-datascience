@@ -1,4 +1,4 @@
-# Lecture 00 — Setting Up Your Data Science Environment
+# Lecture 00 : Setting Up Your Data Science Environment
 
 ## Who is this for?
 
@@ -6,7 +6,7 @@ Anyone with zero setup on their computer. By the end of this lecture, you'll hav
 
 ---
 
-## Step 1 — Install Python
+## Step 1 : Install Python
 
 Check if Python is already installed. Open your terminal (Command Prompt on Windows, Terminal on Mac/Linux) and type:
 
@@ -24,7 +24,7 @@ If not installed, go to [python.org/downloads](https://www.python.org/downloads/
 
 ---
 
-## Step 2 — Install Jupyter Notebook and required libraries
+## Step 2 : Install Jupyter Notebook and required libraries
 
 Open your terminal and run each line below, one at a time, waiting for each to finish:
 
@@ -43,7 +43,7 @@ If `pip` is not recognized, try `pip3` instead, or `python -m pip install ...`.
 
 ---
 
-## Step 3 — Create your working folder
+## Step 3 : Create your working folder
 
 ```
 cd Desktop
@@ -55,7 +55,7 @@ This is where all your notebooks will live locally before you push them to GitHu
 
 ---
 
-## Step 4 — Launch Jupyter Notebook
+## Step 4 : Launch Jupyter Notebook
 
 ```
 jupyter notebook
@@ -67,7 +67,7 @@ To run any cell inside the notebook: press **Shift + Enter**.
 
 ---
 
-## Step 5 — Verify your installation
+## Step 5 : Verify your installation
 
 In the first cell of your new notebook, paste this and run it:
 
