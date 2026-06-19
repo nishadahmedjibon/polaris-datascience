@@ -1,4 +1,4 @@
-# NumPy Lecture 01 — What & Why NumPy Arrays
+# NumPy Lecture 01 : What & Why NumPy Arrays
 
 ## What is a NumPy array?
 
@@ -31,11 +31,11 @@ Every array has a `dtype` (data type), which tells NumPy exactly how many bytes 
 
 `uint16` matters for real scientific work — 16-bit TIFF camera images (like the ones used in beam profiling experiments) store each pixel as a `uint16` value.
 
-## shape, ndim, size — the three properties you'll use constantly
+## shape, ndim, size - the three properties you'll use constantly
 
-- **shape** — size of the array along each dimension, given as a tuple
-- **ndim** — number of dimensions
-- **size** — total number of elements
+- **shape** - size of the array along each dimension, given as a tuple
+- **ndim** - number of dimensions
+- **size** - total number of elements
 
 ```
 1D array shape (5,)       → a single row of 5 values
@@ -43,7 +43,7 @@ Every array has a `dtype` (data type), which tells NumPy exactly how many bytes 
 3D array shape (2, 3, 4)  → 2 layers, each 3×4
 ```
 
-A grayscale image is naturally a **2D array** — rows and columns of pixel brightness values. This is the foundation for everything in image-based scientific analysis.
+A grayscale image is naturally a **2D array** - rows and columns of pixel brightness values. This is the foundation for everything in image-based scientific analysis.
 
 ## Why dtype choice is a real engineering decision
 
