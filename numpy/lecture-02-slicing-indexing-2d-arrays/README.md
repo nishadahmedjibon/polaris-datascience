@@ -1,4 +1,4 @@
-# NumPy Lecture 02 — Slicing, Indexing, and 2D Arrays
+# NumPy Lecture 02 - Slicing, Indexing, and 2D Arrays
 
 Almost everything you will ever do with scientific image data comes down to one skill:
 **grabbing the right piece of an array, correctly and fast.**
@@ -10,7 +10,7 @@ Python loop.
 
 ---
 
-## Part 1 — Indexing 1D Arrays
+## Part 1 : Indexing 1D Arrays
 
 Indexing means picking out one specific element by its position number.
 NumPy arrays, like Python lists, start counting from **0**.
@@ -46,7 +46,7 @@ print(a[-5])   # 10  → same as a[0] for this array
 
 ---
 
-## Part 2 — Slicing 1D Arrays
+## Part 2 : Slicing 1D Arrays
 
 Slicing extracts a **range** of elements in one shot.
 
@@ -84,7 +84,7 @@ print(a[1:4])   # [20 30 40]  → indices 1, 2, 3  (NOT 4)
 
 ---
 
-## Part 3 — The View Trap (Critical)
+## Part 3 : The View Trap (Critical)
 
 This is the **number one bug** that beginners hit with NumPy. It causes silent,
 hard-to-find errors in real code.
@@ -140,7 +140,7 @@ print(np.shares_memory(a, c))   # False → independent copy
 
 ---
 
-## Part 4 — Boolean Indexing (Masking)
+## Part 4 : Boolean Indexing (Masking)
 
 Boolean indexing lets you filter an array by condition, not by position.
 This is one of the most powerful and frequently used features in NumPy.
@@ -191,7 +191,7 @@ a[a > 100] = 0
 print(a)   # [  5  10   0  40   0]
 ```
 
-### Real use case — signal vs noise separation
+### Real use case - signal vs noise separation
 
 ```python
 # Simulated pixel values from a beam detector
@@ -214,7 +214,7 @@ print("Mean background:", pixels[pixels <= threshold].mean())
 
 ---
 
-## Part 5 — Fancy Indexing
+## Part 5 : Fancy Indexing
 
 Instead of a range (slice) or a condition (mask), you can index with a
 **list of specific positions** you want.
@@ -251,7 +251,7 @@ print(a)   # [10, 20, 30, 40, 50]  ← unchanged, because b is a copy
 
 ---
 
-## Part 6 — 2D Arrays: Indexing
+## Part 6 : 2D Arrays: Indexing
 
 A 2D array is rows and columns — exactly like a spreadsheet or a grayscale image
 where each element is a pixel brightness value.
@@ -303,7 +303,7 @@ The `:` means "everything along this dimension."
 
 ---
 
-## Part 7 — 2D Slicing (Cropping Sub-regions)
+## Part 7 : 2D Slicing (Cropping Sub-regions)
 
 This is how you cut out a **Region of Interest (ROI)** from an image —
 for example, the area around the beam spot.
@@ -370,7 +370,7 @@ print(image)
 
 ---
 
-## Part 8 — 2D Boolean Masking
+## Part 8 : 2D Boolean Masking
 
 Boolean masks work identically on 2D arrays.
 
@@ -400,7 +400,7 @@ print(image)
 
 ---
 
-## Part 9 — The `axis` Parameter (Critical for Projections)
+## Part 9 : The `axis` Parameter (Critical for Projections)
 
 The `axis` parameter controls which dimension an operation collapses.
 This is the concept most beginners get confused about — but it's essential
@@ -438,7 +438,7 @@ print(np.min(image,  axis=0))   # min of each column
 print(np.std(image,  axis=1))   # std of each row
 ```
 
-### Direct application — beam profile projection
+### Direct application - beam profile projection
 
 Your proposal's data analysis section defines:
 
@@ -459,11 +459,11 @@ Everything else (Gaussian fitting, FWHM extraction) operates on P_h and P_v.
 
 ---
 
-## Part 10 — `np.where()` — Conditional Logic Without Loops
+## Part 10 : `np.where()` — Conditional Logic Without Loops
 
 `np.where` has two forms. Both are extremely useful.
 
-### Form 1 — replace values conditionally
+### Form 1 : replace values conditionally
 
 ```python
 np.where(condition, value_if_true, value_if_false)
@@ -481,7 +481,7 @@ clipped = np.where(a < 50, 50, a)
 print(clipped)  # [ 50 150  50 400  80]
 ```
 
-### Form 2 — find indices where condition is true
+### Form 2 : find indices where condition is true
 
 ```python
 np.where(condition)   # returns tuple of index arrays
@@ -503,7 +503,7 @@ for r, c in zip(rows, cols):
     print(f"  Hot pixel at ({r},{c}): value = {image[r, c]}")
 ```
 
-### Finding the peak — beam center detection
+### Finding the peak : beam center detection
 
 ```python
 image = np.array([
@@ -542,7 +542,7 @@ print("ROI shape:", roi.shape)   # (40, 40)
 
 ---
 
-## Part 11 — Reshaping and Flattening
+## Part 11 : Reshaping and Flattening
 
 ### `.flatten()` — collapse any array to 1D
 
@@ -593,7 +593,7 @@ of pixels per image is fixed but the number of images varies.
 
 ---
 
-## Part 12 — Stacking and Averaging (Multi-frame Analysis)
+## Part 12 : Stacking and Averaging (Multi-frame Analysis)
 
 In a real beam experiment, you take 100–200 frames at each energy level.
 NumPy lets you treat all frames as a single 3D array and process them together.
@@ -614,7 +614,7 @@ print(stack[0])   # img1
 print(stack[1])   # img2
 ```
 
-### Averaging across frames — noise reduction
+### Averaging across frames - noise reduction
 
 ```python
 # Simulate 100 noisy beam-on frames
@@ -651,7 +651,7 @@ print("Min after subtraction:", corrected.min())
 
 This is your measurement protocol Step 2 (background subtraction) done in three lines.
 
-### `np.vstack` and `np.hstack` — joining arrays
+### `np.vstack` and `np.hstack` - joining arrays
 
 ```python
 a = np.array([[1, 2, 3]])   # shape (1, 3)
@@ -665,7 +665,7 @@ print(np.hstack([a, b]))    # [[1 2 3 4 5 6]]  → stack horizontally, shape (1,
 
 ---
 
-## Part 13 — Putting It All Together: A Mini Beam Analysis
+## Part 13 : Putting It All Together: A Mini Beam Analysis
 
 Here is a complete workflow using everything from this lecture —
 from a raw simulated image to a cleaned, projected beam profile.
